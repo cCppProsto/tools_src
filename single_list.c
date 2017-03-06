@@ -98,19 +98,15 @@ struct sSListNode * slt_insert_by_index(sSList *apList, unsigned aIndex, int aVa
 struct sSListNode * slt_insert_by_pointer(sSList *apList, struct sSListNode *apNode, int aValue)
 {
     unsigned i = 0;
-    struct sSListNode *next = apList->pHead;
-    struct sSListNode *tmp;
+    struct sSListNode *current;
+    struct sSListNode *next;
     struct sSListNode *new_element;
 
-    // TODO !!!!!!!!!!!!!
-    while (next != apNode)
-        next = next->pNext;
-    // !!!!!!!!!!!!!!!!!!!!
-
-    new_element        = _get_new_node(aValue);
-    tmp                = next->pNext;
-    next->pNext        = new_element;
-    new_element->pNext = tmp;
+    new_element         = _get_new_node(aValue);
+    current             = apNode;
+    next                = apNode->pNext;
+    new_element->pNext  = next;
+    current->pNext      = new_element;
     apList->size++;
     return new_element;
 }

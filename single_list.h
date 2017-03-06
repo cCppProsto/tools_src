@@ -1,12 +1,12 @@
 #ifndef SINGLE_LIST_H
 #define SINGLE_LIST_H
 
-// https://wiki.qt.io/Doxygen_Plugin_for_QtCreator
+
 
 struct sSListNode
 {
     struct sSListNode *pNext;
-    int         value;
+    int                value;
 };
 
 typedef struct

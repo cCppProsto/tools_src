@@ -236,7 +236,7 @@ void ut_single_list_remove_last(unsigned aIsPrint)
     if (aIsPrint)
         printf("\n");
 
-    slt_free(&list);
+    //slt_free(&list);
 }
 //------------------------------------------------------------------------------
 void ut_single_list_remove_by_index(unsigned aIsPrint)
