@@ -68,65 +68,6 @@ private:
  * http://stackoverflow.com/questions/27596861/give-static-function-access-to-data-without-passing-the-data-as-a-parameter
  * http://stackoverflow.com/questions/21799746/how-to-glfwsetkeycallback-for-different-classes
  * https://www.gamedev.net/topic/675377-glfw-call-fails/
-
-typedef void (* key_func_clbk)(GLFWwindow*,int,int,int,int);
-typedef void (* mouse_btn_fun_clbk)(GLFWwindow*,int,int,int);
-typedef void (* main_loop_fun_clbk)();
-
-class glfw_engine2D
-{
-    static glfw_engine2D *eventHandlingInstance;
-    static void keyEvent(GLFWwindow *,int ,int ,int ,int);
-
-    friend void resize_clb(GLFWwindow *, int, int);
-
-    static constexpr unsigned int cScreenWidth  = 1024;
-    static constexpr unsigned int cScreenHeight = 768;
-    static constexpr bool         cIsFullScreen = false;
-
-public:
-    static glfw_engine2D &instance();
-
-    bool init(std::string aCaption = "",
-              unsigned int aWidth  = cScreenWidth,
-              unsigned int aHeight = cScreenHeight,
-              bool aIsFullScreen   = cIsFullScreen);
-
-    virtual void draw();
-
-    void setKeyCallBack(key_func_clbk);
-    void setMouseCallBack(mouse_btn_fun_clbk);
-    void setMainLoopCallBack(main_loop_fun_clbk);
-
-    void run();
-
-    glfw_engine2D(const glfw_engine2D&) = delete;
-    glfw_engine2D(const glfw_engine2D&&) = delete;
-    glfw_engine2D &operator=(const glfw_engine2D&) = delete;
-    glfw_engine2D &operator=(const glfw_engine2D&&) = delete;
-
-protected:
-    glfw_engine2D();
-    ~glfw_engine2D() = default;
-    void resize(GLFWwindow*,int,int);
-
-    virtual void keycallback(
-        GLFWwindow *window,
-        int key,
-        int scancode,
-        int action,
-        int mods){}; // purely abstract function
-
-    virtual void setEventHandling();
-
-private:
-  GLFWwindow  *mpGLFW_Win    = nullptr;
-  unsigned int mWidth        = cScreenWidth;
-  unsigned int mHeight       = cScreenHeight;
-  bool         mIsFullScreen = cIsFullScreen;
-  float        mWRatio       = 1.f;
-  float        mHRatio       = 1.f;
-};
 */
 }
 }
