@@ -8,7 +8,6 @@ namespace cpp_prosto
 namespace graphical
 {
 
-
 struct gpPoint : gPrimitive
 {
     gpPoint();
