@@ -18,13 +18,6 @@ struct point2D
     int y{0};
 };
 
-// point
-// line
-// lines
-// open lines
-// closed lines
-// circle
-// plane
 // triangle
 class gPrimitive
 {
@@ -52,6 +45,7 @@ protected:
 
 protected:
     float                mPointSize{1.0f};
+    bool                 mIsFilledColor = false;
     Color                mColor;
     Color                mFillColor;
     std::vector<point2D> mPoints;

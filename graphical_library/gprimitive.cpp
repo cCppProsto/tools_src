@@ -7,11 +7,12 @@ namespace graphical
 
 //------------------------------------------------------------------------------
 gPrimitive::gPrimitive()
-    :mColor()
 {
 }
 //------------------------------------------------------------------------------
 gPrimitive::gPrimitive(std::initializer_list<point2D> aInitList)
+    :mPointSize{1.0f}
+    ,mIsFilledColor{false}
 {
     for( auto point : aInitList)
         addPoint(point);
@@ -46,6 +47,7 @@ void gPrimitive::set_color(Color aColor)
 void gPrimitive::set_fill_color(Color aFillColor)
 {
     mFillColor = aFillColor;
+    mIsFilledColor = true;
 }
 //------------------------------------------------------------------------------
 const Color &gPrimitive::color()const
