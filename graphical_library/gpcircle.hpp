@@ -17,7 +17,6 @@ public:
     gpCircle();
     gpCircle(int, int, point2D);
 
-    void set(point2D);
     void set_radius(int);
     void set_segments(int);
 
@@ -25,7 +24,7 @@ public:
     const int &radius()const;
     const int &segments()const;
 
-    void draw() const;
+    void draw() const override;
 
 private:
     int mRadius     = 0;

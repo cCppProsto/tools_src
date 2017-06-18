@@ -15,11 +15,10 @@ struct gpPlane : gPrimitive
 
     const point2D &pos()const;
 
-    void set(point2D);
     void set_width(int);
     void set_height(int);
 
-    void draw() const;
+    void draw() const override;
 
 private:
     int mWidth  = 0;

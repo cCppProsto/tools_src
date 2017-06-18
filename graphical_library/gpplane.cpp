@@ -24,11 +24,6 @@ const point2D &gpPlane::pos()const
     return mPoints[0];
 }
 //------------------------------------------------------------------------------
-void gpPlane::set(point2D aPoint)
-{
-    set_point(aPoint, 0);
-}
-//------------------------------------------------------------------------------
 void gpPlane::set_width(int aWidth)
 {
     mWidth = aWidth;

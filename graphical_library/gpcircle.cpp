@@ -23,11 +23,6 @@ gpCircle::gpCircle(int aRadius, int aSegments, point2D aPoint)
     mSinTheta = std::sin(mTheta);
 }
 //------------------------------------------------------------------------------
-void gpCircle::set(point2D aPoint)
-{
-    set_point(aPoint, 0);
-}
-//------------------------------------------------------------------------------
 void gpCircle::set_radius(int aRadius)
 {
     mRadius = aRadius;

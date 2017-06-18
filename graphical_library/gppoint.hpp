@@ -12,7 +12,6 @@ struct gpPoint : gPrimitive
 {
     gpPoint();
     gpPoint(point2D, size_t);
-    void set(point2D);
     void draw()const;
 };
 

@@ -19,11 +19,6 @@ gpPoint::gpPoint(point2D aPoint, size_t aSize)
     set_point_size(aSize);
 }
 //------------------------------------------------------------------------------
-void gpPoint::set(point2D aPoint)
-{
-    set_point(aPoint, 0);
-}
-//------------------------------------------------------------------------------
 void gpPoint::draw()const
 {
     const point2D &p = point(0);

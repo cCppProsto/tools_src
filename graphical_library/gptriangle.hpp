@@ -19,7 +19,7 @@ struct gpTriangle : gPrimitive
     const point2D &p2()const;
     const point2D &p3()const;
 
-    void draw() const;
+    void draw() const override;
 };
 
 }
