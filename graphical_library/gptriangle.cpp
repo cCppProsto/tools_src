@@ -53,7 +53,7 @@ void gpTriangle::draw() const
     {
         const sRGB &c = mFillColor.color();
         glColor3ub(c.mR, c.mG, c.mB);
-        glBegin(GL_QUADS);
+        glBegin(GL_POLYGON);
             glVertex2i(p1.x, p1.y);
             glVertex2i(p2.x, p2.y);
             glVertex2i(p3.x, p3.y);
