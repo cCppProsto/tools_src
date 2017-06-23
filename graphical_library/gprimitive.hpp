@@ -18,13 +18,13 @@ struct point2D
     int y{0};
 };
 
-// triangle
 class gPrimitive
 {
 public:
     gPrimitive();
     gPrimitive(const gPrimitive&) = default;
     gPrimitive &operator=(const gPrimitive&) = default;
+    virtual ~gPrimitive(){}
 
     void set_point(point2D, size_t);
     void set_color(Color);

@@ -19,35 +19,35 @@ gpGrid::gpGrid(point2D aPos,
                int aColumns)
     :mWidth(aWidth)
     ,mHeight(aHeight)
-    ,mRows(aRows)
-    ,mColumns(aColumns)
+    ,mLines(aRows)
+    ,mRows(aColumns)
 {
-    set(aPos, mWidth, mHeight, mRows, mColumns);
+    set(aPos, mWidth, mHeight, mLines, mRows);
 }
 //------------------------------------------------------------------------------
 void gpGrid::set(point2D aPos,
                  int aWidth,
                  int aHeight,
-                 int aRows,
-                 int aColumns)
+                 int aLines,
+                 int aRows)
 {
     mWidth = aWidth;
     mHeight = aHeight;
+    mLines = aLines;
     mRows = aRows;
-    mColumns = aColumns;
 
     mPoints.clear();
 
-    int width  = mWidth  * (mColumns);
-    int height = mHeight * (mRows);
+    int width  = mWidth  * (mRows);
+    int height = mHeight * (mLines);
 
-    for(int r = 0; r <= mRows; ++r)
+    for(int r = 0; r <= mLines; ++r)
     {
         addPoint({aPos.x, aPos.y + mHeight*r});
         addPoint({aPos.x + width, aPos.y + mHeight*r});
     }
 
-    for(int c = 0; c <= mColumns; ++c)
+    for(int c = 0; c <= mRows; ++c)
     {
         addPoint({aPos.x + mWidth*c, aPos.y });
         addPoint({aPos.x + mWidth*c, aPos.y + height});
@@ -65,9 +65,9 @@ void gpGrid::draw() const
 
         glBegin(GL_QUADS);
             glVertex2i(mPoints[0].x, mPoints[0].y);
-            glVertex2i(mPoints[0].x + mWidth*mColumns, mPoints[0].y);
-            glVertex2i(mPoints[0].x + mWidth*mColumns, mPoints[0].y + mHeight*mRows);
-            glVertex2i(mPoints[0].x, mPoints[0].y + mHeight*mRows);
+            glVertex2i(mPoints[0].x + mWidth*mRows, mPoints[0].y);
+            glVertex2i(mPoints[0].x + mWidth*mRows, mPoints[0].y + mHeight*mLines);
+            glVertex2i(mPoints[0].x, mPoints[0].y + mHeight*mLines);
         glEnd();
     }
 
@@ -101,12 +101,12 @@ const int &gpGrid::height()const
 //------------------------------------------------------------------------------
 const int &gpGrid::columns()const
 {
-    return mColumns;
+    return mRows;
 }
 //------------------------------------------------------------------------------
 const int &gpGrid::rows()const
 {
-    return mRows;
+    return mLines;
 }
 
 

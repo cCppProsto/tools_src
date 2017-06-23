@@ -26,8 +26,8 @@ struct gpGrid : gPrimitive
 private:
     int mWidth{0};
     int mHeight{0};
+    int mLines{0};
     int mRows{0};
-    int mColumns{0};
 };
 
 }
