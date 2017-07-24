@@ -14,6 +14,7 @@ class fpstool
 
 public:
     fpstool();
+    ~fpstool() = default;
 
     void setFps(unsigned);
     void start();
@@ -23,9 +24,6 @@ public:
     fpstool(const fpstool&&) = delete;
     fpstool &operator=(const fpstool&) = delete;
     fpstool &operator=(const fpstool&&) = delete;
-
-private:
-    ~fpstool() = default;
 
 private:
     unsigned                  mFps;
