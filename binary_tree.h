@@ -1,6 +1,10 @@
 #ifndef _BINARY_INT_TREE_H_
 #define _BINARY_INT_TREE_H_
 
+
+
+
+
 typedef struct
 {
   int data;
@@ -21,8 +25,6 @@ typedef struct _sBinTreeNode
 
 typedef struct _sBinTree
 {
-  unsigned char l_depth;
-  unsigned char r_depth;
   sBinTreeNode *pRoot;
 }sBinTree;
 

@@ -26,8 +26,6 @@ static char pi_diff(sBinTreeNode *);
 void bt_init(sBinTree *apTree)
 {
   apTree->pRoot = NULL;
-  apTree->l_depth = 0;
-  apTree->r_depth = 0;
 }
 //------------------------------------------------------------------------------
 void bt_destroy(sBinTree *apTree)
