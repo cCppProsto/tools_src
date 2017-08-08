@@ -53,8 +53,8 @@ void glfw_engine2D::drawText(float aX, float aY, std::string aText)
     glColor3ub(254, 254, 254);
     for(size_t i = 0; i < aText.size(); ++i)
     {
-        glRasterPos2i( aX + (i*15), aY);
-        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, aText[i]);
+        glRasterPos2i( aX + (i*8), aY);
+        glutBitmapCharacter(GLUT_BITMAP_8_BY_13, aText[i]);
     };
 }
 //------------------------------------------------------------------------------

@@ -49,10 +49,10 @@ protected:
     int         mWidth          = 1024;
     int         mHeight         = 768;
     bool        mIsFullScreen   = false;
+    GLFWwindow  *mpGLFWWin      = nullptr;
     std::string mCaption;
 
 private:
-    GLFWwindow  *mpGLFWWin  = nullptr;
     float        mWRatio    = 1.f;
     float        mHRatio    = 1.f;
     bool         mIsInited  = false;
