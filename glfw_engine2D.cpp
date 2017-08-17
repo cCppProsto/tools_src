@@ -48,6 +48,11 @@ void glfw_engine2D::run()
     glfwTerminate();
 }
 //------------------------------------------------------------------------------
+void glfw_engine2D::glfw_close()
+{
+  glfwSetWindowShouldClose(mpGLFWWin, GLFW_TRUE);
+}
+//------------------------------------------------------------------------------
 void glfw_engine2D::drawText(float aX, float aY, std::string aText)
 {
     glColor3ub(254, 254, 254);

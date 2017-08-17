@@ -27,6 +27,7 @@ public:
     const bool &isFullScreen()const;
 
     void run();
+    void glfw_close();
 
     static void drawText(float, float, std::string);
 
