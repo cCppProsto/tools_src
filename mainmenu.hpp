@@ -49,6 +49,7 @@ struct Menu final
   void down();
   bool enter();
   void leave();
+  void goToTop();
 
 private:
   using stack = std::stack<std::pair<std::vector<MenuItem>*, unsigned> >;

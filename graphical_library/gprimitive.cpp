@@ -59,6 +59,16 @@ void gPrimitive::move(int aDx, int aDy)
     }
 }
 //------------------------------------------------------------------------------
+void gPrimitive::enableFill()
+{
+  mIsFilledColor = true;
+}
+//------------------------------------------------------------------------------
+void gPrimitive::disableFill()
+{
+  mIsFilledColor = false;
+}
+//------------------------------------------------------------------------------
 const Color &gPrimitive::color()const
 {
     return mColor;

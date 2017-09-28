@@ -31,6 +31,9 @@ public:
     void set_fill_color(Color);
     void set_point_size(size_t);
 
+    void enableFill();
+    void disableFill();
+
     void move(int, int);
 
     const point2D &point(size_t) const;
