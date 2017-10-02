@@ -33,6 +33,7 @@ public:
 
     void enableFill();
     void disableFill();
+    const bool & isFilled()const;
 
     void move(int, int);
 

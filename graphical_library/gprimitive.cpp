@@ -69,6 +69,11 @@ void gPrimitive::disableFill()
   mIsFilledColor = false;
 }
 //------------------------------------------------------------------------------
+const bool &gPrimitive::isFilled()const
+{
+  return mIsFilledColor;
+}
+//------------------------------------------------------------------------------
 const Color &gPrimitive::color()const
 {
     return mColor;
