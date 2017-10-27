@@ -1,5 +1,7 @@
 #include <cstdlib>
 #include "fpstool.hpp"
+#include <chrono>
+#include <thread>
 
 namespace cpp_prosto
 {
@@ -33,7 +35,7 @@ void fpstool::delay()
     miliseconds = std::abs(mMilisecondsForFrame - mElapsed.count());
 
     while (duration_cast<milliseconds>(clock::now() - mStart).count() < miliseconds)
-      ;
+      std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 }
