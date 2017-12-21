@@ -15,8 +15,8 @@ gpPoint::gpPoint()
 //------------------------------------------------------------------------------
 gpPoint::gpPoint(point2D aPoint, size_t aSize)
 {
-    addPoint(aPoint);
-    set_point_size(aSize);
+  addPoint(aPoint);
+  set_point_size(aSize);
 }
 //------------------------------------------------------------------------------
 void gpPoint::draw()const
