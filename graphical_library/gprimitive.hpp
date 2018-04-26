@@ -13,9 +13,9 @@ namespace graphical
 struct point2D
 {
     point2D(){}
-    point2D(int aX, int aY) :x(aX),y(aY){}
-    int x{0};
-    int y{0};
+    point2D(float aX, float aY) :x(aX),y(aY){}
+    float x{0};
+    float y{0};
 };
 
 class gPrimitive
@@ -35,7 +35,7 @@ public:
     void disableFill();
     const bool & isFilled()const;
 
-    void move(int, int);
+    void move(float, float);
 
     const point2D &point(size_t) const;
     const Color   &color()       const;

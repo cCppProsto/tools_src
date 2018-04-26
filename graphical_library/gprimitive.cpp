@@ -50,7 +50,7 @@ void gPrimitive::set_fill_color(Color aFillColor)
     mIsFilledColor = true;
 }
 //------------------------------------------------------------------------------
-void gPrimitive::move(int aDx, int aDy)
+void gPrimitive::move(float aDx, float aDy)
 {
     for( auto &point : mPoints)
     {

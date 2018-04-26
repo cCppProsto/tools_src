@@ -47,7 +47,7 @@ namespace  color_common
         switch(aColor)
         {
             case eColorType::Aqua:      return {0x00, 0xFF, 0xFF};
-            case eColorType::Black:     return {0x00, 0xFF, 0xFF};
+            case eColorType::Black:     return {0x00, 0x00, 0x00};
             case eColorType::Blue:      return {0x00, 0x00, 0xFF};
             case eColorType::Fuchsia:   return {0xFF, 0x00, 0xFF};
             case eColorType::Gray:      return {0x80, 0x80, 0x80};
