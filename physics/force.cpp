@@ -29,10 +29,10 @@ void force::setValue(float aValue, float aAngle)
   mVector = geo2D::vector({aValue*std::sin(ang.radian()), aValue*std::cos(ang.radian())});
   mVector.invert_y();
 
-  if(abs(mVector.x()) < 0.0001)
+  if(std::fabs(mVector.x()) < 0.001f)
     mVector.setX(0.f);
 
-  if(abs(mVector.y()) < 0.0001)
+  if(std::fabs(mVector.y()) < 0.001f)
     mVector.setY(0.f);
 
   mForce = aValue;
@@ -52,6 +52,12 @@ bool force::operator==(const force &aObj)const
 {
   return    this->mForce  == aObj.mForce
          && this->mVector == aObj.mVector;
+}
+//------------------------------------------------------------------------------
+void force::clear()
+{
+  mVector.clear();
+  mForce = 0.f;
 }
 
 

@@ -20,6 +20,8 @@ struct force
   const float &value()const;
   const vector &forceV()const;
 
+  void clear();
+
   void setForce(vector);
 
   bool operator==(const force&)const;

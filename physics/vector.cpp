@@ -28,11 +28,13 @@ vector::vector(point ap1, point ap2)
 void vector::setX(float aX)
 {
   mValue.setX(aX);
+  _length_calculate();
 }
 //------------------------------------------------------------------------------
 void vector::setY(float aY)
 {
   mValue.setY(aY);
+  _length_calculate();
 }
 //------------------------------------------------------------------------------
 void vector::_length_calculate()
@@ -65,6 +67,27 @@ vector vector::operator -(const vector &aValue)
 }
 //------------------------------------------------------------------------------
 vector &vector::operator -=(const vector &aValue)
+{
+  *this = *this - aValue;
+  return *this;
+}
+//------------------------------------------------------------------------------
+vector vector::operator -(const float &aValue)
+{
+  vector tmp(*this);
+
+  float fx = tmp.mValue.mX;
+  float fy = tmp.mValue.mY;
+  fx = aValue*fx/tmp.length();
+  fy = aValue*fy/tmp.length();
+
+  tmp.mValue.mX = tmp.mValue.mX - fx;
+  tmp.mValue.mY = tmp.mValue.mY - fy;
+  tmp._length_calculate();
+  return tmp;
+}
+//------------------------------------------------------------------------------
+vector &vector::operator -=(const float &aValue)
 {
   *this = *this - aValue;
   return *this;
@@ -125,4 +148,12 @@ const float &vector::length()const
 {
   return mLength;
 }
+//------------------------------------------------------------------------------
+void vector::clear()
+{
+  mValue.setX(0);
+  mValue.setY(0);
+  mLength = 0;
+}
+
 }

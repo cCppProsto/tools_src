@@ -12,6 +12,7 @@ struct vector
   vector(point);
   vector(point, point);
 
+  void clear();
   void setX(float);
   void setY(float);
 
@@ -29,6 +30,9 @@ struct vector
   vector operator -(const vector &);
   vector &operator -=(const vector &);
 
+  vector operator -(const float &);
+  vector &operator -=(const float &);
+
   vector operator *(float);
   vector &operator *=(float);
 
@@ -41,13 +45,6 @@ private:
   point mValue;
   float mLength{0.f};
 };
-
-//bool operator==(const vector& lhs, const vector& rhs)
-//{
-//    return    lhs.length() == rhs.length()
-//           && lhs.x()      == rhs.x()
-//           && lhs.y()      == rhs.y();
-//}
 
 }
 #endif // VECTOR_HPP

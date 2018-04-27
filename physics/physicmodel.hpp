@@ -31,11 +31,17 @@ struct physicModel
   const vector &velocityV()const;
   const vector &accelerationV()const;
 
+  void bottom_border_collision();
+
 private:
   float  mFrictionCoeff{0.f};
-  float  mMassa{0.f};
+  vector mvFriction;
+
+  float  mMassa{10.f};
   point  mPosition;
-  vector mVelocity;
+
+  vector mvVelocity;
+
   vector mAcceleration;
   force  mResForce;
 

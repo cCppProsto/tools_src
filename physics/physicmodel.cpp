@@ -1,6 +1,6 @@
 #include "common.hpp"
 #include "physicmodel.hpp"
-
+#include <cmath>
 namespace geo2D
 {
 
@@ -14,13 +14,39 @@ void physicModel::tick()
   float x = mPosition.x();
   float y = mPosition.y();
 
-  x += mResForce.forceV().x() + mVelocity.x();
-  y += mResForce.forceV().y() + mVelocity.y();
-
-  mVelocity += mResForce.forceV();
-
+  if(mResForce.forceV().length() > 0.f)
+  {
+    x += mResForce.forceV().x() + mvVelocity.x();
+    y += mResForce.forceV().y() + mvVelocity.y();
+    mvVelocity += mResForce.forceV();
+  }
+  else
+  {
+    if(mvVelocity.length() > 0.5f)
+    {
+      mvVelocity -= mFrictionCoeff;
+      x += mvVelocity.x();
+      y += mvVelocity.y();
+    }
+  }
   mPosition.setX(x);
   mPosition.setY(y);
+}
+//------------------------------------------------------------------------------
+void physicModel::bottom_border_collision()
+{
+  float P = mMassa * mvVelocity.length();
+  if(P < mMassa)
+    return;
+  if(mForces.empty())
+  {
+    mvVelocity.invert_y();
+  }
+  else
+  {
+    mvVelocity = geo2D::vector({0, P/15});
+    mvVelocity.invert_y();
+  }
 }
 //------------------------------------------------------------------------------
 void physicModel::addForce(force aForce)
@@ -59,6 +85,7 @@ void physicModel::removeForce(force aForce)
 void physicModel::setFrictionCoefficient(float aCoeff)
 {
   mFrictionCoeff = aCoeff;
+  mvFriction = geo2D::vector({aCoeff, aCoeff});
 }
 //------------------------------------------------------------------------------
 const float &physicModel::frictionCoefficient()const
@@ -88,12 +115,12 @@ const point &physicModel::position()const
 //------------------------------------------------------------------------------
 void physicModel::setVelocityV(vector aVector)
 {
-  mVelocity = aVector;
+  mvVelocity = aVector;
 }
 //------------------------------------------------------------------------------
 const vector &physicModel::velocityV()const
 {
-  return mVelocity;
+  return mvVelocity;
 }
 //------------------------------------------------------------------------------
 void physicModel::setAccelerationV(vector aVector)
